@@ -15,13 +15,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+        MoveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") * 0.5f);
     }
 
     private void FixedUpdate()
     {
         //_rb.MovePosition(MoveVector + (Vector2)transform.position); 
-        if(MoveVector.x != 0f) { _rb.linearVelocity = new Vector2(MoveVector.x * moveSpeed, _rb.linearVelocityY); }
-        
+        if(MoveVector.magnitude > 0.1f) 
+        {
+            _rb.linearVelocity = MoveVector.normalized * moveSpeed;
+
+            Vector3 turn = transform.localScale;
+            turn.x = MoveVector.x;
+            transform.localScale = turn;
+        }
     }
 }
