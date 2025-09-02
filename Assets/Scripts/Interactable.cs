@@ -32,6 +32,8 @@ public class Interactable : MonoBehaviour
             else if (resetRotationUponDrag) { transform.rotation = _defaultRotation; }
                 transform.position = GetMousePosition(); 
         }
+
+        if (_rb != null && removeVelocityUponClick) { _rb.angularVelocity = 0; _rb.linearVelocity = Vector2.zero; }
     }
     public virtual void OnMouseUp()
     {
@@ -41,7 +43,6 @@ public class Interactable : MonoBehaviour
     {
         OnMouseClick.Invoke();
         if (freezeRotationUponDrag) { _rotOnStartClick = transform.rotation; }
-        if (_rb != null && removeVelocityUponClick) { _rb.angularVelocity = 0; _rb.linearVelocity = Vector2.zero; }
         if (_col != null && disableColliderOnDrag) { _col.enabled = false; }
     }
 
