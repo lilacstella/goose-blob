@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class ProgressSaveManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static ProgressSaveManager Instance;
+
+    private void Awake()
     {
-        
+        if(Instance == null) { Instance = this; DontDestroyOnLoad(this); }
+        else { Destroy(gameObject); }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ClearAllData()
     {
-        
+        PlayerPrefs.DeleteAll();
     }
 }
