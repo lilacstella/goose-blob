@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5626542253847677910, guid: 1e16b66063df4b249b965cc93d53b4a2, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: Door To Bed Room
       objectReference: {fileID: 0}
     - target: {fileID: 8777162025706621191, guid: 1e16b66063df4b249b965cc93d53b4a2, type: 3}
       propertyPath: m_LocalPosition.x
