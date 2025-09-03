@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     public float moveSpeed = 5f;
 
+    private Animator _anim;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,9 +28,16 @@ public class PlayerController : MonoBehaviour
         {
             _rb.linearVelocity = MoveVector.normalized * moveSpeed;
 
-            Vector3 turn = transform.localScale;
-            turn.x = MoveVector.x;
-            transform.localScale = turn;
+            if(MoveVector.x != 0f) 
+            {
+                Vector3 turn = transform.localScale;
+                turn.x = MoveVector.x;
+                transform.localScale = turn;
+            }
+            
+
+            if (_anim != null) { _anim.SetBool("Movement", true); }
         }
+        else { if (_anim != null) { _anim.SetBool("Movement", false); } }
     }
 }
