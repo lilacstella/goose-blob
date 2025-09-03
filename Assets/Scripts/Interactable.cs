@@ -12,6 +12,7 @@ public class Interactable : MonoBehaviour
     public bool freezeRotationUponDrag = true;
     public bool removeVelocityUponClick = true;
     public bool disableColliderOnDrag = true;
+    public bool mouseScrollToRotate = false;
 
     private Quaternion _rotOnStartClick;
     private Quaternion _defaultRotation = new Quaternion(0, 0, 0, 1);
@@ -30,10 +31,11 @@ public class Interactable : MonoBehaviour
         {
             if (freezeRotationUponDrag) { transform.rotation = _rotOnStartClick; }
             else if (resetRotationUponDrag) { transform.rotation = _defaultRotation; }
-                transform.position = GetMousePosition(); 
-        }
 
-        if (_rb != null && removeVelocityUponClick) { _rb.angularVelocity = 0; _rb.linearVelocity = Vector2.zero; }
+            if (_rb != null && removeVelocityUponClick) { _rb.angularVelocity = 0; _rb.linearVelocity = Vector2.zero; }
+
+            transform.position = GetMousePosition();
+        }
     }
     public virtual void OnMouseUp()
     {

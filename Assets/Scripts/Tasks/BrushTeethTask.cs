@@ -1,16 +1,39 @@
 using UnityEngine;
 
-public class BrushTeethTask : MonoBehaviour
+public class BrushTeethTask : Task
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject toothBrush;
+    public GameObject mouthAndTeeth;
+    public GameObject table;
+
+    public void Start()
     {
-        
+        ShowHideTaskObjects(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ShowHideTaskObjects(bool activeornot)
     {
-        
+        toothBrush.SetActive(activeornot);
+        mouthAndTeeth.SetActive(activeornot);
+        table.SetActive(activeornot);
+    }
+
+    public override void StartTask()
+    {
+        if (TaskManager.Instance.StartTask(this))
+        {
+            TryForTimeFlyBy();
+            _col.enabled = false;
+            ShowHideTaskObjects(true);
+        }
+    }
+
+    public override void CompleteTask()
+    {
+        if (TaskManager.Instance.CompleteTask(this))
+        {
+            ShowHideTaskObjects(false);
+            _col.enabled = true;
+        }
     }
 }
