@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df1e44a2e39382540ae7beaffa1414d9
+guid: 38ae609c4ff10064781d165759420a12
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Josefin Sans
+  - Huglove
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

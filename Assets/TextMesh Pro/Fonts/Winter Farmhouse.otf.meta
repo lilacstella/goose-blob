@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 836577901344db049b16a0c581f989ca
+guid: e4c8e696674269f4d8f3ae35ed218f06
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Josefin Sans
+  - Winter Farmhouse
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
