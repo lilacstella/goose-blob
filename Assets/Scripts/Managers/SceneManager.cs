@@ -16,8 +16,8 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha0)) { SwitchScene(1); }
-        if(Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene(2); }
+        if(Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene(0); }
+        if(Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene(1); }
     }
 
     public void SwitchScene(int scene)

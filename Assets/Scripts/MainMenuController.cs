@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SwitchScene(int scene)
     {
-        
+        if (SceneManager.Instance != null) { SceneManager.Instance.SwitchScene(scene); }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitGame()
     {
-        
+
     }
 }
