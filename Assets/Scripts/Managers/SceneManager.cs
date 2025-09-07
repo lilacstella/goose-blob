@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SceneManager : MonoBehaviour
 {
     public static SceneManager Instance;
 
     public Animator sceneChangeAnimator;
+    private AudioSource _audio;
 
     public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE}
 
@@ -18,6 +20,8 @@ public class SceneManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
+        _audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class SceneManager : MonoBehaviour
             animator.Play("Start");
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+            _audio.Play();
             animator.Play("End");
         }
     }
