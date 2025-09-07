@@ -3,20 +3,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public TrashSettings trashSettings;
+
+    private int trashSpawnTier;
     private void Awake()
     {
-        if(Instance == null) { Instance = this; }
-        else { Destroy(this); }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this);
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public int TrashSpawnTier
     {
-        
+        get { return trashSpawnTier; }
+        set { trashSpawnTier = value; }
     }
 }

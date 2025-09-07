@@ -9,10 +9,17 @@ public class SceneManager : MonoBehaviour
     public Animator sceneChangeAnimator;
     private AudioSource _audio;
 
+    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE}
+
     private void Awake()
     {
-        if (Instance == null) { Instance = this; DontDestroyOnLoad(this); }
-        else { Destroy(gameObject); }
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(gameObject);
 
         _audio = GetComponent<AudioSource>();
     }
@@ -20,8 +27,9 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene(0); }
-        if(Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene(1); }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene((int)Scenes.MAIN_MENU); }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene((int)Scenes.GAME_SCENE); }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchScene((int)Scenes.TRASH_SCENE); }
     }
 
     public void SwitchScene(int scene)
@@ -37,4 +45,5 @@ public class SceneManager : MonoBehaviour
             animator.Play("End");
         }
     }
+    public void SwitchScene(Scenes scene) { SwitchScene((int)scene); }
 }
