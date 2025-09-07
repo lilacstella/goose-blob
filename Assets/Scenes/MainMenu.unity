@@ -1476,6 +1476,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Achievements
       objectReference: {fileID: 0}
+    - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+    - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2876053950596305221, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+    - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5606877678867388975, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
       propertyPath: m_Name
       value: Achievements
@@ -2001,8 +2013,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Stella R Us
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6c43aae3bd8aae41871a3b7b1283a98, type: 2}
-  m_sharedMaterial: {fileID: 6176120405354060922, guid: b6c43aae3bd8aae41871a3b7b1283a98, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+  m_sharedMaterial: {fileID: -2876053950596305221, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2250,6 +2262,10 @@ PrefabInstance:
       value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 4615671927776222866, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+    - target: {fileID: 4615671927776222866, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -2262,8 +2278,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4615671927776222866, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2876053950596305221, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+    - target: {fileID: 4615671927776222866, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615671927776222866, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5421843170152263303, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2668,6 +2692,18 @@ PrefabInstance:
     - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
       propertyPath: m_text
       value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+    - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2876053950596305221, guid: dcc41a2cb1177d040959a3b73805002a, type: 2}
+    - target: {fileID: 1569930710020707439, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5606877678867388975, guid: ce1e1a6d1ec22d7489493e65a202cb1c, type: 3}
       propertyPath: m_Name
