@@ -40,4 +40,5 @@ public class SceneManager : MonoBehaviour
             animator.Play("End");
         }
     }
+    public void SwitchScene(Scenes scene) { SwitchScene((int)scene); }
 }

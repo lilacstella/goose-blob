@@ -106,7 +106,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f6e5acb0608e7254e93ba7e89e02abae, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
         m_CallState: 2
   followMouseOffset: {x: 0, y: 0}
   followsMouseWhenHeldDown: 1
+  followsMouseWithOffsetDependingOnWhereMouseWas: 1
   resetRotationUponDrag: 0
   freezeRotationUponDrag: 1
   removeVelocityUponClick: 1
@@ -189,7 +190,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.91, y: 1.5}
+    oldSize: {x: 1.0111111, y: 1.6666666}
     newSize: {x: 1.86, y: 2.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public TrashSettings trashSettings;
+
     private int trashSpawnTier;
     private void Awake()
     {
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this);
     }
+
+
 
     public int TrashSpawnTier
     {
