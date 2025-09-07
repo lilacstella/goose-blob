@@ -3,28 +3,19 @@ using UnityEngine;
 public class TrashSpawner : MonoBehaviour
 {
     public GameObject[] trashPrefabs;
-
-    public float spawnRate;
-    private float timer = 0;
+    public Transform[] spawnPoints;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        timer = spawnRate;
-    }
+    // void Start()
+    // {
+    //     int hi = GameManager.Instance.TrashSpawnTier;
+    // }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (timer < spawnRate)
-            timer += Time.deltaTime;
-        else
-        {
-            SpawnTrash();
-            timer = 0;
-        }
-    }
+    // void Update()
+    // {
+    // }
     
     void SpawnTrash()
     {

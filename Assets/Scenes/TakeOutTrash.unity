@@ -309,7 +309,8 @@ GameObject:
   - component: {fileID: 582211176}
   - component: {fileID: 582211174}
   - component: {fileID: 582211177}
-  m_Layer: 0
+  - component: {fileID: 582211178}
+  m_Layer: 2
   m_Name: Platform
   m_TagString: Trash Platform
   m_Icon: {fileID: 0}
@@ -380,8 +381,8 @@ Transform:
   m_GameObject: {fileID: 582211173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1744, y: 0.0267, z: -0.07042739}
-  m_LocalScale: {x: 7.3526983, y: 9.975417, z: 1}
+  m_LocalPosition: {x: -8.2752, y: 0.0267, z: -3}
+  m_LocalScale: {x: 1.1506972, y: 9.975417, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -403,7 +404,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: -99
+  m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -432,6 +433,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &582211178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582211173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d10f0bdec1a2442bf8d79a71a0f48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &888107738
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +611,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2, y: -1.25}
+  m_Offset: {x: 2.25, y: -1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -608,7 +621,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 7.5, y: 1.25}
+  m_Size: {x: 7.5, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1933951002
 Transform:
@@ -619,7 +632,7 @@ Transform:
   m_GameObject: {fileID: 1933950997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.25, y: -3.22, z: -0.01866551}
+  m_LocalPosition: {x: 2.69, y: -3.28, z: -0.01866551}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -676,12 +689,12 @@ MonoBehaviour:
   - {fileID: 6153372321459018774, guid: 0f105ef1c4cbbc24f997cdd148ab5f7a, type: 3}
   - {fileID: 3854878335195225031, guid: dcbf2f0e8b7ab8147a8fd17c272d563e, type: 3}
   - {fileID: 6153372321459018774, guid: 9e899d564076d7240930a6d2301b7039, type: 3}
-  spawnRate: 5
+  spawnRate: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 82916327}
   - {fileID: 2096228208}
-  - {fileID: 1933951002}
   - {fileID: 582211176}
+  - {fileID: 1933951002}
