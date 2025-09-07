@@ -1,8 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public class Interactable : MonoBehaviour
 {
     public UnityEvent OnMouseClick;
@@ -14,10 +14,10 @@ public class Interactable : MonoBehaviour
     public bool disableColliderOnDrag = true;
     public bool mouseScrollToRotate = false;
 
-    private Quaternion _rotOnStartClick;
-    private Quaternion _defaultRotation = new Quaternion(0, 0, 0, 1);
-    private Rigidbody2D _rb;
-    private Collider2D _col;
+    protected Quaternion _rotOnStartClick;
+    protected Quaternion _defaultRotation = new Quaternion(0, 0, 0, 1);
+    protected Rigidbody2D _rb;
+    protected Collider2D _col;
 
     public virtual void Awake()
     {
