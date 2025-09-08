@@ -61,6 +61,6 @@ public class TrashSpawner : MonoBehaviour
 
     public void ExitTask()
     {
-
+        
     }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TrashSettings
   m_EditorClassIdentifier: 
   trashData: {fileID: 11400000, guid: 85e0f7866e5ccd344983d4cf4cd72bca, type: 2}
-  smallTrashLeft: 0
-  cardboardBoxLeft: 0
-  trashbagLeft: 0
+  smallTrashLeft: 2
+  cardboardBoxLeft: 5
+  trashBagLeft: 3
