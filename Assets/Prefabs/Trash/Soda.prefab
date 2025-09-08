@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Mass: 1.27825
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: f6e5acb0608e7254e93ba7e89e02abae, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -131,19 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMouseClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6880257620760327736}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
-        m_MethodName: set_gravityScale
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   followMouseOffset: {x: 0, y: 0}
   followsMouseWhenHeldDown: 1
   followsMouseWithOffsetDependingOnWhereMouseWas: 1

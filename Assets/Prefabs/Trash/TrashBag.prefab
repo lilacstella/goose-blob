@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Mass: 5.814515
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -132,21 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMouseClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3420113255384542647}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
-        m_MethodName: set_gravityScale
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   followMouseOffset: {x: 0, y: 0}
   followsMouseWhenHeldDown: 1
+  followsMouseWithOffsetDependingOnWhereMouseWas: 1
   resetRotationUponDrag: 0
   freezeRotationUponDrag: 1
   removeVelocityUponClick: 1
@@ -190,7 +179,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.1, y: 4.25}
+    oldSize: {x: 1.86, y: 2.55}
     newSize: {x: 1.86, y: 2.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -256,7 +245,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.1, y: 4.25}
+    oldSize: {x: 1.86, y: 2.55}
     newSize: {x: 1.86, y: 2.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

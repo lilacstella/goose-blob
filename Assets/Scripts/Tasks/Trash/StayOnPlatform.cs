@@ -10,7 +10,16 @@ public class StayOnPlatform : MonoBehaviour
         if (rb != null)
         {
             rb.gravityScale = 0f;
-            rb.linearVelocity = Vector2.zero; 
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.gravityScale = 1f;
         }
     }
 }

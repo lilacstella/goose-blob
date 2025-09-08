@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.05348494, w: 0.9985687}
   m_LocalPosition: {x: -4.28, y: 3.61, z: -0.0294}
-  m_LocalScale: {x: 0.5652332, y: 0.4286694, z: 0.4891253}
+  m_LocalScale: {x: 0.82, y: 0.8, z: 0.8101323}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,10 +103,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.47072122
+  m_Mass: 1.3578475
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -132,21 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMouseClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6880257620760327736}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
-        m_MethodName: set_gravityScale
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   followMouseOffset: {x: 0, y: 0}
   followsMouseWhenHeldDown: 1
+  followsMouseWithOffsetDependingOnWhereMouseWas: 1
   resetRotationUponDrag: 0
   freezeRotationUponDrag: 1
   removeVelocityUponClick: 1

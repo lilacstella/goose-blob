@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc12e9321af9134eb3ebf0f39a8e5c2, type: 3}
   m_Name: TrashSettings
   m_EditorClassIdentifier: 
-  trashData: {fileID: 11400000, guid: d81b59500401c3341a0e48df60a17227, type: 2}
+  trashData: {fileID: 11400000, guid: 4d2bce0ddfc09e84db1b6f9397d224b1, type: 2}
   smallTrashLeft: 0
   cardboardBoxLeft: 0
   trashbagLeft: 0
