@@ -18,7 +18,7 @@ public class TrashSpawner : MonoBehaviour
     {
         if (settings != null)
         {
-            SpawnTrash(settings.trashData);
+            SpawnTrash();
         }
     }
 
@@ -30,17 +30,17 @@ public class TrashSpawner : MonoBehaviour
         return true;
     }
 
-    void SpawnTrash(TrashData data)
+    void SpawnTrash()
     {
         int pos = 0;
-        for (int i = 0; i < data.smallTrashCount; i++)
+        for (int i = 0; i < settings.smallTrashLeft; i++)
         {
             int rand = Random.Range(0, smallTrashObjects.Length);
             GameObject gameObject = Instantiate(smallTrashObjects[rand], spawnPoints[pos++].position, Quaternion.identity);
             gameObject.GetComponent<Collider2D>().enabled = false;
             smallTrashList.Add(gameObject.GetComponent<Rigidbody2D>());
         }
-        for (int i = 0; i < data.trashbagCount; i++)
+        for (int i = 0; i < settings.trashBagLeft; i++)
         {
             GameObject gameObject = Instantiate(trashBag, spawnPoints[pos++].position, Quaternion.identity);
             gameObject.GetComponent<Collider2D>().enabled = false;
@@ -49,7 +49,7 @@ public class TrashSpawner : MonoBehaviour
             trashBagsList.Add(gameObject.GetComponent<Rigidbody2D>());
 
         }
-        for (int i = 0; i < data.cardboardCount; i++)
+        for (int i = 0; i < settings.cardboardBoxLeft; i++)
         {
             GameObject gameObject = Instantiate(cardboardBox, spawnPoints[pos++].position, Quaternion.identity);
             gameObject.GetComponent<Collider2D>().enabled = false;

@@ -7,5 +7,5 @@ public class TrashSettings : ScriptableObject
 
     public int smallTrashLeft;
     public int cardboardBoxLeft;
-    public int trashbagLeft;
+    public int trashBagLeft;
 }
