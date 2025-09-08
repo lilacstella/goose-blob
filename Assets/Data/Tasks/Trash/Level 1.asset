@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb011f1d9333af4e9e44bda526d3397, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  smallTrashCount: 5
-  cardboardCount: 1
-  trashbagCount: 1
+  smallTrashCount: 6
+  cardboardCount: 2
+  trashbagCount: 0

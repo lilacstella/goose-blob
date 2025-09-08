@@ -36,11 +36,14 @@ public class TrashSpawner : MonoBehaviour
         for (int i = 0; i < data.smallTrashCount; i++)
         {
             int rand = Random.Range(0, smallTrashObjects.Length);
-            smallTrashList.Add(Instantiate(smallTrashObjects[rand], spawnPoints[pos++].position, Quaternion.identity).GetComponent<Rigidbody2D>());
+            GameObject gameObject = Instantiate(smallTrashObjects[rand], spawnPoints[pos++].position, Quaternion.identity);
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            smallTrashList.Add(gameObject.GetComponent<Rigidbody2D>());
         }
         for (int i = 0; i < data.trashbagCount; i++)
         {
             GameObject gameObject = Instantiate(trashBag, spawnPoints[pos++].position, Quaternion.identity);
+            gameObject.GetComponent<Collider2D>().enabled = false;
             float scale = Random.Range(0.8f, 1.72f);
             gameObject.transform.localScale = Vector3.one * scale;
             trashBagsList.Add(gameObject.GetComponent<Rigidbody2D>());
@@ -49,6 +52,7 @@ public class TrashSpawner : MonoBehaviour
         for (int i = 0; i < data.cardboardCount; i++)
         {
             GameObject gameObject = Instantiate(cardboardBox, spawnPoints[pos++].position, Quaternion.identity);
+            gameObject.GetComponent<Collider2D>().enabled = false;
             float scale = Random.Range(1.5f, 2.58f);
             gameObject.transform.localScale = new Vector3(scale, 1f, 1f);
             cardboardBoxList.Add(gameObject.GetComponent<Rigidbody2D>());
