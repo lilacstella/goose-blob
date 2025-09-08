@@ -22,7 +22,7 @@ public class BrushTeethTask : Task
     {
         if (TaskManager.Instance.StartTask(this))
         {
-            TryForTimeFlyBy();
+            PassTimeForTask();
             _col.enabled = false;
             ShowHideTaskObjects(true);
         }

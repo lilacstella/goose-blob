@@ -5,16 +5,24 @@ public class TaskManager : MonoBehaviour
     public static TaskManager Instance { get; private set; }
     
     public Task CurrentTask { get; private set; }
-    
+
+    public LevelSettings selectedLevelSettings;
+    public TrashTaskSettings trashTaskSettings;
+
     private void Awake()
     {
-        if(Instance == null) { Instance = this; }
+        if(Instance == null) { Instance = this; DontDestroyOnLoad(this); }
         else { Destroy(this); }
     }
 
     void Start()
     {
         CurrentTask = null;
+    }
+
+    public void ResetTaskManager()
+    {
+
     }
 
     private void Update()
@@ -29,6 +37,7 @@ public class TaskManager : MonoBehaviour
     {
         if (!HasTask)
         {
+            task.transform.SetParent(this.transform);
             CurrentTask = task;
             CurrentTask.OnStartTask.Invoke();
             return true;
@@ -41,6 +50,7 @@ public class TaskManager : MonoBehaviour
         if (CurrentTask == task)
         {
             CurrentTask.OnCompleteTask.Invoke();
+            task.transform.SetParent(null);
             CurrentTask = null;
             return true;
         }

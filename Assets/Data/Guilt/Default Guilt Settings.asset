@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc12e9321af9134eb3ebf0f39a8e5c2, type: 3}
-  m_Name: TrashSettings
+  m_Script: {fileID: 11500000, guid: a27b9ca2c73567a4ba25189198b9c56b, type: 3}
+  m_Name: Default Guilt Settings
   m_EditorClassIdentifier: 
-  trashData: {fileID: 11400000, guid: 85e0f7866e5ccd344983d4cf4cd72bca, type: 2}
-  smallTrashLeft: 0
-  cardboardBoxLeft: 0
-  trashbagLeft: 0
+  guiltPerFail: 5
+  guiltPerCompletion: 10

@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class SceneManager : MonoBehaviour
 {
     public static SceneManager Instance;
+
+    public UnityEvent<int> OnSceneSwitch;
 
     public Animator sceneChangeAnimator;
     private AudioSource _audio;
@@ -42,6 +45,7 @@ public class SceneManager : MonoBehaviour
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             _audio.Play();
+            OnSceneSwitch.Invoke(scene);
             animator.Play("End");
         }
     }

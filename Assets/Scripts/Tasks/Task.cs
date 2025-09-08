@@ -2,28 +2,27 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class Task : MonoBehaviour
+public class Task : MonoBehaviour
 {
     public UnityEvent OnCompleteTask, OnStartTask;
     public int chanceForTimeToFlyBy = 0;
     public int minutesToFlyBy = 20;
+    public SceneManager.Scenes taskScene;
     public bool PlayerInRange { get; protected set; } 
-    protected Collider2D _col;
+    public Collider2D _col;
+
+    public TaskSettings settings;
 
     private void Awake()
     {
         PlayerInRange = false;
-        _col = GetComponent<Collider2D>();
     }
 
-    public void TryForTimeFlyBy()
+    public void PassTimeForTask()
     {
         if(TimeManager.Instance != null)
         {
-            if(Random.Range(0, 100) <= chanceForTimeToFlyBy)
-            {
-                TimeManager.Instance.AddTime(minutesToFlyBy);
-            }
+            TimeManager.Instance.AddTime(minutesToFlyBy);
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
@@ -31,11 +30,41 @@ public abstract class Task : MonoBehaviour
         if (collision.CompareTag("Player")) { PlayerInRange = true; }
     }
 
-    public abstract void CompleteTask();
-    public abstract void StartTask();
+    public virtual void CompleteTask()
+    {
+        if (TaskManager.Instance.CompleteTask(this))
+        {
+            _col.enabled = true;
+            SceneManager.Instance.SwitchScene(SceneManager.Scenes.GAME_SCENE);
+            OnCompleteTask.Invoke();
+        }
+    }
+    public virtual void StartTask()
+    {
+        if (PlayerInRange)
+        {
+            if (TaskManager.Instance.StartTask(this))
+            {
+                _col.enabled = false;
+                PassTimeForTask();
+                SceneManager.Instance.SwitchScene(taskScene);
+                OnStartTask.Invoke();
+            }
+        }
+    }
 
     public void OnMouseDown()
     {
         StartTask();
     }
+}
+public enum Tasks
+{
+    None, 
+    TakeOutTrash,
+    Laundry,
+    BrushYourTeeth,
+    Cooking,
+    Showering,
+
 }

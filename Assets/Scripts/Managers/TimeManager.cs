@@ -4,6 +4,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public float CurrentTime { get; private set; }
+    public bool timePaused = false;
     public TMP_Text timeText;
     public int startingTime = 480;
     public float timePerMinute = 60;
@@ -14,17 +15,25 @@ public class TimeManager : MonoBehaviour
     public static TimeManager Instance;
     public void Awake()
     {
-        if (Instance == null) { Instance = this; }
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(this); }
         else { Destroy(this); }
     }
 
     private void Start()
     {
         CurrentTime = startingTime;
-    }
 
+        SceneManager.Instance.OnSceneSwitch.AddListener(PauseOnSwitchOutOfGameScene);
+    }
+    private void PauseOnSwitchOutOfGameScene(int scene)
+    {
+        if(scene == (int)SceneManager.Scenes.GAME_SCENE) { timePaused = false; }
+        else { timePaused = true; }
+    }
     private void Update()
     {
+        if(timePaused) { return; }
+
         if (timeIncreasesAutomatically) CurrentTime += timePerMinute * Time.deltaTime / 60f;
 
         //if (Input.GetKeyDown(KeyCode.Space)) { CurrentTime = Random.Range(1, 1000);  Debug.Log(GetCurrentTimeAsString()); }

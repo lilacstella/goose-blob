@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb011f1d9333af4e9e44bda526d3397, type: 3}
-  m_Name: Level 2
+  m_Script: {fileID: 11500000, guid: a27b9ca2c73567a4ba25189198b9c56b, type: 3}
+  m_Name: High-Risk-High-Reward Guilt Settings
   m_EditorClassIdentifier: 
-  smallTrashCount: 7
-  cardboardCount: 1
-  trashbagCount: 0
+  guiltPerFail: 15
+  guiltPerCompletion: 25
