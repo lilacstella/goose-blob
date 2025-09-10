@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb011f1d9333af4e9e44bda526d3397, type: 3}
   m_Name: Easy 3
   m_EditorClassIdentifier: 
+  taskType: 1
   guiltSettings: {fileID: 11400000, guid: 47020bd459169754caed8caa9d796d1e, type: 2}
   chancesToFail: 3
+  baseTimeUsage: 15
   smallTrashCount: 8
   cardboardCount: 2
   trashbagCount: 0
+  smallTrashLeft: 0
+  cardboardBoxLeft: 0
+  trashBagLeft: 0

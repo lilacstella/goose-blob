@@ -5,6 +5,6 @@ using UnityEngine;
 public class LevelSettings : ScriptableObject
 {
     public int startingTime = 360; //6 am
-    public List<Tasks> requiredTasks;
+    public List<TaskSettings> requiredTasks;
     public int startingGuilt;
 }

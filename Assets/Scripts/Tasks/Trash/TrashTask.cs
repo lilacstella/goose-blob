@@ -9,16 +9,4 @@ public class TrashTask : Task
     {
         collidersAndSprites.position = trashPilePositions[Random.Range(0, trashPilePositions.Length)].position;
     }
-
-    public override void CompleteTask()
-    {
-        base.CompleteTask();
-        _col.gameObject.SetActive(true);
-    }
-
-    public override void StartTask()
-    {
-        base.StartTask();
-        _col.gameObject.SetActive(false);
-    }
 }

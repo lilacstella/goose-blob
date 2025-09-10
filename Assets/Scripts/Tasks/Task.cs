@@ -34,7 +34,6 @@ public class Task : MonoBehaviour
     {
         if (TaskManager.Instance.CompleteTask(this))
         {
-            _col.enabled = true;
             SceneManager.Instance.SwitchScene(SceneManager.Scenes.GAME_SCENE);
             OnCompleteTask.Invoke();
         }
@@ -45,10 +44,9 @@ public class Task : MonoBehaviour
         {
             if (TaskManager.Instance.StartTask(this))
             {
-                _col.enabled = false;
-                PassTimeForTask();
-                SceneManager.Instance.SwitchScene(taskScene);
                 OnStartTask.Invoke();
+                PassTimeForTask();
+                SceneManager.Instance.SwitchScene(taskScene, () => _col.gameObject.SetActive(false));
             }
         }
     }

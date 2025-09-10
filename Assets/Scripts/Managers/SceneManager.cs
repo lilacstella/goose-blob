@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,7 +27,10 @@ public class SceneManager : MonoBehaviour
 
         _audio = GetComponent<AudioSource>();
     }
-
+    private void OnDestroy()
+    {
+        OnSceneSwitch.RemoveAllListeners();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,19 +39,20 @@ public class SceneManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchScene((int)Scenes.TRASH_SCENE); }
     }
 
-    public void SwitchScene(int scene)
+    public void SwitchScene(int scene, Action onCompleteAction = null)
     {
-        StartCoroutine(WaitScene(sceneChangeAnimator, scene));
+        StartCoroutine(WaitScene(sceneChangeAnimator, scene, onCompleteAction));
 
-        IEnumerator WaitScene(Animator animator, int scene)
+        IEnumerator WaitScene(Animator animator, int scene, Action onCompleteAction)
         {
             animator.Play("Start");
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             _audio.Play();
             OnSceneSwitch.Invoke(scene);
+            onCompleteAction?.Invoke();
             animator.Play("End");
         }
     }
-    public void SwitchScene(Scenes scene) { SwitchScene((int)scene); }
+    public void SwitchScene(Scenes scene, Action onCompleteAction = null) { SwitchScene((int)scene, onCompleteAction); }
 }

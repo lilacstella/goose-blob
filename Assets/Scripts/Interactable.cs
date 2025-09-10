@@ -15,6 +15,8 @@ public class Interactable : MonoBehaviour
     public bool disableColliderOnDrag = true;
     public bool mouseScrollToRotate = false;
 
+    public bool Interacting { get; private set; }
+
     protected Quaternion _rotOnStartClick;
     protected Quaternion _defaultRotation = new Quaternion(0, 0, 0, 1);
     protected Vector3 _mouseOffsetFromPivotPoint = Vector3.zero;
@@ -42,10 +44,12 @@ public class Interactable : MonoBehaviour
             }
             else { transform.position = GetMousePosition(); }
         }
+        Interacting = true;
     }
     public virtual void OnMouseUp()
     {
         if(_col != null && disableColliderOnDrag) { _col.enabled = true; }
+        Interacting = false;
     }
     public virtual void OnMouseDown()
     {
@@ -53,6 +57,7 @@ public class Interactable : MonoBehaviour
         if (freezeRotationUponDrag) { _rotOnStartClick = transform.rotation; }
         if (_col != null && disableColliderOnDrag) { _col.enabled = false; }
         if (followsMouseWithOffsetDependingOnWhereMouseWas) { _mouseOffsetFromPivotPoint = transform.position - GetMousePosition(); }
+        Interacting = true;
     }
 
     public Vector3 GetMousePosition()

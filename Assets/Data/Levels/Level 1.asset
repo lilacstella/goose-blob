@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   startingTime: 360
-  requiredTasks: 
+  requiredTasks:
+  - {fileID: 11400000, guid: f7d9c19a3e72e8c4ab163fa9807fcff9, type: 2}
   startingGuilt: 0

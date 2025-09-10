@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb011f1d9333af4e9e44bda526d3397, type: 3}
   m_Name: Hard 3
   m_EditorClassIdentifier: 
+  taskType: 1
   guiltSettings: {fileID: 11400000, guid: 3cc500c599e4cbc4397d5552501e91f3, type: 2}
   chancesToFail: 3
+  baseTimeUsage: 15
   smallTrashCount: 0
   cardboardCount: 3
   trashbagCount: 8
+  smallTrashLeft: 0
+  cardboardBoxLeft: 0
+  trashBagLeft: 0

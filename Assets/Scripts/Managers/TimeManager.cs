@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class TimeManager : MonoBehaviour
 {
     public float CurrentTime { get; private set; }
@@ -9,6 +10,7 @@ public class TimeManager : MonoBehaviour
     public int startingTime = 480;
     public float timePerMinute = 60;
     public bool timeIncreasesAutomatically = true;
+    [SerializeField] CanvasGroup _timeCanvas; 
     //1 second in game = 1 minute on the clock. 
     //480 in current time = 8 AM. 720 = 12:00. 960 = 16:00.
 
@@ -17,6 +19,8 @@ public class TimeManager : MonoBehaviour
     {
         if (Instance == null) { Instance = this; DontDestroyOnLoad(this); }
         else { Destroy(this); }
+
+        _timeCanvas = GetComponent<CanvasGroup>();
     }
 
     private void Start()
@@ -27,16 +31,14 @@ public class TimeManager : MonoBehaviour
     }
     private void PauseOnSwitchOutOfGameScene(int scene)
     {
-        if(scene == (int)SceneManager.Scenes.GAME_SCENE) { timePaused = false; }
-        else { timePaused = true; }
+        if(scene == (int)SceneManager.Scenes.GAME_SCENE) { timePaused = false; _timeCanvas.alpha = 1f; }
+        else { timePaused = true; _timeCanvas.alpha = 0f; }
     }
     private void Update()
     {
         if(timePaused) { return; }
 
         if (timeIncreasesAutomatically) CurrentTime += timePerMinute * Time.deltaTime / 60f;
-
-        //if (Input.GetKeyDown(KeyCode.Space)) { CurrentTime = Random.Range(1, 1000);  Debug.Log(GetCurrentTimeAsString()); }
 
         if (timeText != null) { timeText.text = GetCurrentTimeAsString(); }
     }
@@ -53,6 +55,5 @@ public class TimeManager : MonoBehaviour
         while(t >= 60) { h++; t -= 60; }
 
         return string.Format("{0:00}:{1:00}", h, t);
-        //return h.ToString() + ":" + t.ToString();
     }
 }
