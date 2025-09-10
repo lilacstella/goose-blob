@@ -107,4 +107,9 @@ public class TrashSpawner : MonoBehaviour
             cardboardBoxList.Add(gameObject.GetComponent<Rigidbody2D>());
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
 }

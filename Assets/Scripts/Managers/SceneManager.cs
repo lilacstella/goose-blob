@@ -13,7 +13,7 @@ public class SceneManager : MonoBehaviour
     public Animator sceneChangeAnimator;
     private AudioSource _audio;
 
-    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE}
+    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE, BRUSHING_TEETH_SCENE}
 
     private void Awake()
     {
@@ -34,9 +34,13 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene((int)Scenes.MAIN_MENU); }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene((int)Scenes.GAME_SCENE); }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchScene((int)Scenes.TRASH_SCENE); }
+        if (Input.GetKey(KeyCode.Tilde))
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene((int)Scenes.MAIN_MENU); }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene((int)Scenes.GAME_SCENE); }
+            if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchScene((int)Scenes.TRASH_SCENE); }
+            if (Input.GetKeyDown(KeyCode.Alpha4)) { SwitchScene((int)Scenes.TRASH_SCENE); }
+        }
     }
 
     public void SwitchScene(int scene, Action onCompleteAction = null)

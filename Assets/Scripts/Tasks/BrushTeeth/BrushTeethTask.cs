@@ -20,11 +20,14 @@ public class BrushTeethTask : Task
 
     public override void StartTask()
     {
-        if (TaskManager.Instance.StartTask(this))
+        if (PlayerInRange)
         {
-            PassTimeForTask();
-            _col.enabled = false;
-            ShowHideTaskObjects(true);
+            if (TaskManager.Instance.StartTask(this))
+            {
+                OnStartTask.Invoke();
+                PassTimeForTask();
+                SceneManager.Instance.SwitchScene(taskScene, () => _col.gameObject.SetActive(false));
+            }
         }
     }
 

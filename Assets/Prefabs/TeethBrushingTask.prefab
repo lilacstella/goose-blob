@@ -487,6 +487,7 @@ MonoBehaviour:
       m_Calls: []
   followMouseOffset: {x: 0, y: 0}
   followsMouseWhenHeldDown: 1
+  followsMouseWithOffsetDependingOnWhereMouseWas: 1
   resetRotationUponDrag: 0
   freezeRotationUponDrag: 1
   removeVelocityUponClick: 1
@@ -1682,6 +1683,7 @@ MonoBehaviour:
         m_CallState: 2
   followMouseOffset: {x: 0, y: 0}
   followsMouseWhenHeldDown: 0
+  followsMouseWithOffsetDependingOnWhereMouseWas: 1
   resetRotationUponDrag: 0
   freezeRotationUponDrag: 1
   removeVelocityUponClick: 1
@@ -1879,6 +1881,9 @@ MonoBehaviour:
       m_Calls: []
   chanceForTimeToFlyBy: 100
   minutesToFlyBy: 5
+  taskScene: 0
+  _col: {fileID: 9071542840246991239}
+  settings: {fileID: 0}
   toothBrush: {fileID: 453039958102965209}
   mouthAndTeeth: {fileID: 3349408976078917090}
   table: {fileID: 3397165169050052480}
