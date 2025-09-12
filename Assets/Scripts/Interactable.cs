@@ -14,6 +14,8 @@ public class Interactable : MonoBehaviour
     public bool removeVelocityUponClick = true;
     public bool disableColliderOnDrag = true;
     public bool mouseScrollToRotate = false;
+    public bool movesUsingRigidbody = false;
+    public float moveForce = 5f;
 
     public bool Interacting { get; private set; }
 
@@ -29,6 +31,19 @@ public class Interactable : MonoBehaviour
         _col = GetComponent<Collider2D>();
     }
 
+    public void Update()
+    {
+        if (mouseScrollToRotate) 
+        {
+            float delta = Input.GetAxis("Mouse ScrollWheel");
+            if(delta != 0f)
+            {
+                if (movesUsingRigidbody) { }
+                else { transform.Rotate(0, 0, delta * 5f); }
+            }
+        }
+    }
+
     public virtual void OnMouseDrag()
     {
         if (followsMouseWhenHeldDown)
@@ -38,11 +53,13 @@ public class Interactable : MonoBehaviour
 
             if (_rb != null && removeVelocityUponClick) { _rb.angularVelocity = 0; _rb.linearVelocity = Vector2.zero; }
 
+            Vector3 pos = GetMousePosition();
             if (followsMouseWithOffsetDependingOnWhereMouseWas)
             {
-                transform.position = GetMousePosition() + _mouseOffsetFromPivotPoint;
+                pos += _mouseOffsetFromPivotPoint;
             }
-            else { transform.position = GetMousePosition(); }
+            if (movesUsingRigidbody) { _rb.AddForce((pos - transform.position).normalized * moveForce); }
+            else { transform.position = pos; }
         }
         Interacting = true;
     }

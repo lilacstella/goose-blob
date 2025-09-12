@@ -13,7 +13,9 @@ public class SceneManager : MonoBehaviour
     public Animator sceneChangeAnimator;
     private AudioSource _audio;
 
-    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE, BRUSHING_TEETH_SCENE}
+    public int CurrentSceneIndex { get; private set; }
+
+    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE, BASIC_TASK_SCENE}
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class SceneManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        CurrentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         _audio = GetComponent<AudioSource>();
     }
     private void OnDestroy()
@@ -39,7 +42,7 @@ public class SceneManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene((int)Scenes.MAIN_MENU); }
             if (Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene((int)Scenes.GAME_SCENE); }
             if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchScene((int)Scenes.TRASH_SCENE); }
-            if (Input.GetKeyDown(KeyCode.Alpha4)) { SwitchScene((int)Scenes.TRASH_SCENE); }
+            if (Input.GetKeyDown(KeyCode.Alpha4)) { SwitchScene((int)Scenes.BASIC_TASK_SCENE); }
         }
     }
 
@@ -55,6 +58,7 @@ public class SceneManager : MonoBehaviour
             _audio.Play();
             OnSceneSwitch.Invoke(scene);
             onCompleteAction?.Invoke();
+            CurrentSceneIndex = scene;
             animator.Play("End");
         }
     }

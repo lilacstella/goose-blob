@@ -8,7 +8,7 @@ public class TrashTaskSettings: TaskSettings
     public int cardboardCount = 0;
     public int trashbagCount = 0;
 
-    public int smallTrashLeft;
-    public int cardboardBoxLeft;
-    public int trashBagLeft;
+    [HideInInspector] public int smallTrashLeft;
+    [HideInInspector] public int cardboardBoxLeft;
+    [HideInInspector] public int trashBagLeft;
 }

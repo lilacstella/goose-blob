@@ -479,12 +479,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414497366}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.5, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.222191, y: -0.025231324, z: 2.9993515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2096228208}
+  m_Father: {fileID: 1609666325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &414497368
 Rigidbody2D:
@@ -1121,7 +1121,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1170220087}
-  m_Father: {fileID: 2096228208}
+  m_Father: {fileID: 1609666325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1449,10 +1449,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e60c213891c1624190339047d05e331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 896ff6095ec9cb440adcfc07fe536960, type: 2}
+  settings: {fileID: 11400000, guid: f7d9c19a3e72e8c4ab163fa9807fcff9, type: 2}
+  _trashSpawner: {fileID: 2096228209}
   cardboardBoxCount: 0
   trashBagCount: 0
   smallTrashCount: 0
+  velocityThreshold: 0.5
+  checkCompleteInterval: 1
+  countdownCanvas: {fileID: 1030973018}
+  countdownText: {fileID: 1990251566}
 --- !u!4 &1609666325
 Transform:
   m_ObjectHideFlags: 0
@@ -1462,10 +1467,13 @@ Transform:
   m_GameObject: {fileID: 1609666323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.277809, y: 0.025231324, z: -2.9993515}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2085120106}
+  - {fileID: 414497367}
+  - {fileID: 1030973017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1797748226
@@ -1862,12 +1870,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085120105}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -10, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.722191, y: -10.025231, z: 2.9993515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2096228208}
+  m_Father: {fileID: 1609666325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2085120107
 BoxCollider2D:
@@ -2002,10 +2010,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1030973017}
-  - {fileID: 2085120106}
-  - {fileID: 414497367}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096228209
@@ -2029,12 +2034,7 @@ MonoBehaviour:
   trashBagsList: []
   cardboardBoxList: []
   gameObjectsLeftOnFloor: []
-  velocityThreshold: 1
-  checkCompleteInterval: 1
-  countdownCanvas: {fileID: 1030973018}
-  countdownText: {fileID: 1990251566}
   trashController: {fileID: 1609666324}
-  settings: {fileID: 11400000, guid: f7d9c19a3e72e8c4ab163fa9807fcff9, type: 2}
   spawnPoints:
   - {fileID: 141588243}
   - {fileID: 278359577}

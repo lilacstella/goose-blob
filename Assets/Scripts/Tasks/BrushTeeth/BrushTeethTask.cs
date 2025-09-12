@@ -2,41 +2,35 @@ using UnityEngine;
 
 public class BrushTeethTask : Task
 {
-    public GameObject toothBrush;
-    public GameObject mouthAndTeeth;
-    public GameObject table;
+    [SerializeField] GameObject _brushTeethSprites;
+    [SerializeField] Mouth _mouth;
 
     public void Start()
     {
-        ShowHideTaskObjects(false);
+        OnCompleteTask.AddListener(()=> _brushTeethSprites.SetActive(false));
+        _brushTeethSprites.SetActive(false);
     }
 
-    private void ShowHideTaskObjects(bool activeornot)
+    private void Update()
     {
-        toothBrush.SetActive(activeornot);
-        mouthAndTeeth.SetActive(activeornot);
-        table.SetActive(activeornot);
+        if()
     }
 
     public override void StartTask()
     {
-        if (PlayerInRange)
-        {
-            if (TaskManager.Instance.StartTask(this))
-            {
-                OnStartTask.Invoke();
-                PassTimeForTask();
-                SceneManager.Instance.SwitchScene(taskScene, () => _col.gameObject.SetActive(false));
-            }
-        }
-    }
+        if (_requirePlayerInRange && !PlayerInRange) { return; }
 
-    public override void CompleteTask()
-    {
-        if (TaskManager.Instance.CompleteTask(this))
+        if (TaskManager.Instance.StartTask(this))
         {
-            ShowHideTaskObjects(false);
-            _col.enabled = true;
+            OnStartTask.Invoke();
+            PassTimeForTask();
+            SceneManager.Instance.SwitchScene(taskScene, StartBrushTask);
+        }
+
+        void StartBrushTask()
+        {
+            _col.gameObject.SetActive(false);
+            _brushTeethSprites.SetActive(true);
         }
     }
 }

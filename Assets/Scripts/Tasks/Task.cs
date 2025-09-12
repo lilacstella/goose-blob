@@ -8,14 +8,17 @@ public class Task : MonoBehaviour
     public int chanceForTimeToFlyBy = 0;
     public int minutesToFlyBy = 20;
     public SceneManager.Scenes taskScene;
-    public bool PlayerInRange { get; protected set; } 
+    public bool PlayerInRange { get; protected set; }
+    [SerializeField] protected bool _requirePlayerInRange = true;
     public Collider2D _col;
+    public bool TaskComplete { get; set; }
 
     public TaskSettings settings;
 
     private void Awake()
     {
         PlayerInRange = false;
+        TaskComplete = false;
     }
 
     public void PassTimeForTask()
@@ -34,20 +37,19 @@ public class Task : MonoBehaviour
     {
         if (TaskManager.Instance.CompleteTask(this))
         {
-            SceneManager.Instance.SwitchScene(SceneManager.Scenes.GAME_SCENE);
+            SceneManager.Instance.SwitchScene(SceneManager.Scenes.GAME_SCENE, ()=> _col.gameObject.SetActive(true));
             OnCompleteTask.Invoke();
         }
     }
     public virtual void StartTask()
     {
-        if (PlayerInRange)
+        if (_requirePlayerInRange && !PlayerInRange) { return; }
+        
+        if (TaskManager.Instance.StartTask(this))
         {
-            if (TaskManager.Instance.StartTask(this))
-            {
-                OnStartTask.Invoke();
-                PassTimeForTask();
-                SceneManager.Instance.SwitchScene(taskScene, () => _col.gameObject.SetActive(false));
-            }
+            OnStartTask.Invoke();
+            PassTimeForTask();
+            SceneManager.Instance.SwitchScene(taskScene, () => _col.gameObject.SetActive(false));
         }
     }
 
