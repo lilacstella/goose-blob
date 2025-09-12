@@ -13,7 +13,7 @@ public class BrushTeethTask : Task
 
     private void Update()
     {
-        if()
+        
     }
 
     public override void StartTask()
