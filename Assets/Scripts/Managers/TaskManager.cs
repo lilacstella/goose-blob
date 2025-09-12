@@ -32,16 +32,14 @@ public class TaskManager : MonoBehaviour
     {
         if (selectedLevelSettings == null) { Debug.LogError("Missing Level Settings!!!"); return; }
 
-        foreach (TaskSettings task in selectedLevelSettings.requiredTasks) {  }
-
-        foreach (TaskSettings settings in selectedLevelSettings.requiredTasks)
+        foreach (TaskSettings task in selectedLevelSettings.requiredTasks)
         {
-            switch (settings.taskType) 
+            switch (task.taskType)
             {
                 case Tasks.TakeOutTrash:
                     _requiredTasks.Add(Tasks.TakeOutTrash);
-                    Instantiate(trashTaskPrefab, this.transform).GetComponent<TrashTask>().settings = (TrashTaskSettings)settings;
-                    return;
+                    Instantiate(trashTaskPrefab, this.transform).GetComponent<TrashTask>().settings = (TrashTaskSettings)task;
+                    break;
             }
         }
     }

@@ -17,17 +17,18 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private CanvasGroup countdownCanvas;
     [SerializeField] private TMP_Text countdownText;
 
+    public TrashController trashController;
     public TrashTaskSettings settings;
 
     public Transform[] spawnPoints;
 
     private void Start()
     {
-        if(TaskManager.Instance != null) settings = (TrashTaskSettings)TaskManager.Instance.CurrentTask.settings;
-        if (settings != null)
-        {
-            SpawnTrash();
-        }
+        // if (TaskManager.Instance != null) settings = (TrashTaskSettings)TaskManager.Instance.CurrentTask.settings;
+        // if (settings != null)
+        // {
+        SpawnTrash();
+        // }
         countdownCanvas.alpha = 0f;
     }
 
@@ -82,14 +83,14 @@ public class TrashSpawner : MonoBehaviour
     void SpawnTrash()
     {
         int pos = 0;
-        for (int i = 0; i < settings.smallTrashCount; i++)
+        for (int i = 0; i < trashController.smallTrashCount; i++)
         {
             int rand = Random.Range(0, smallTrashObjects.Length);
             GameObject gameObject = Instantiate(smallTrashObjects[rand], spawnPoints[pos++].position, Quaternion.identity);
             gameObject.GetComponent<Collider2D>().enabled = false;
             smallTrashList.Add(gameObject.GetComponent<Rigidbody2D>());
         }
-        for (int i = 0; i < settings.trashbagCount; i++)
+        for (int i = 0; i < trashController.trashBagCount; i++)
         {
             GameObject gameObject = Instantiate(trashBag, spawnPoints[pos++].position, Quaternion.identity);
             gameObject.GetComponent<Collider2D>().enabled = false;
@@ -98,7 +99,7 @@ public class TrashSpawner : MonoBehaviour
             trashBagsList.Add(gameObject.GetComponent<Rigidbody2D>());
 
         }
-        for (int i = 0; i < settings.cardboardCount; i++)
+        for (int i = 0; i < trashController.cardboardBoxCount; i++)
         {
             GameObject gameObject = Instantiate(cardboardBox, spawnPoints[pos++].position, Quaternion.identity);
             gameObject.GetComponent<Collider2D>().enabled = false;
