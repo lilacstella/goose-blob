@@ -29,14 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            AddGuilt(15);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            AddGuilt(-15);
-        }
+        
     }
 
     public void ResetGameManager()
