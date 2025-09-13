@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class TaskManager : MonoBehaviour
     
     public Task CurrentTask { get; private set; }
 
+    [SerializeField] CanvasGroup _taskManagerCanvas;
+    [SerializeField] TMP_Text _taskButton;
     [SerializeField] List<Tasks> _requiredTasks;
 
     [SerializeField] GameObject trashTaskPrefab, teethBrushingTaskPrefab;    
@@ -81,6 +85,7 @@ public class TaskManager : MonoBehaviour
         else if(scene == 1)
         {
             foreach (GameObject go in _taskPrefabs) { go.SetActive(true); }
+            _taskManagerCanvas.alpha = 0f;
         }
         else
         {
@@ -88,6 +93,7 @@ public class TaskManager : MonoBehaviour
             {
                 if(go.GetComponent<Task>().settings.taskType != CurrentTask.settings.taskType) go.SetActive(false);
             }
+            _taskManagerCanvas.alpha = 1f;
         }
     }
 
@@ -129,4 +135,10 @@ public class TaskManager : MonoBehaviour
     }
 
     public bool HasTask => CurrentTask != null;
+
+    public void PressTaskButton()
+    {
+        if (CurrentTask.TaskComplete) { CompleteTask(CurrentTask); }
+        else { }
+    }
 }
