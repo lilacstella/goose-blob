@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public void Start()
+    {
+        UpdateVisualGuiltIndicator();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
