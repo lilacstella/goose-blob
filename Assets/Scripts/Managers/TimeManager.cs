@@ -27,7 +27,8 @@ public class TimeManager : MonoBehaviour
     {
         CurrentTime = startingTime;
 
-        SceneManager.Instance.OnSceneSwitch.AddListener(PauseOnSwitchOutOfGameScene);
+        if (SceneManager.Instance != null) { SceneManager.Instance.OnSceneSwitch.AddListener(PauseOnSwitchOutOfGameScene); }
+        else { Debug.LogWarning("Missing SceneManager! Unable to switch scenes!"); }
     }
     private void PauseOnSwitchOutOfGameScene(int scene)
     {

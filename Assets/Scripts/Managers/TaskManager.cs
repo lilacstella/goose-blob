@@ -30,8 +30,8 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         CurrentTask = null;
-        SceneManager.Instance.OnSceneSwitch.AddListener(SwitchingScene);
-
+        if (SceneManager.Instance != null) { SceneManager.Instance.OnSceneSwitch.AddListener(SwitchingScene); }
+        else { Debug.LogWarning("Missing SceneManager! Unable to handle scene switching!"); }
         SetTasksForNewLevel();
     }
 
