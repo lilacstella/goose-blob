@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e850419fb72a2d84993ab6515dc8e904
+guid: c7bdcb8becc6246429482caf44016ee1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3840349760076185656
-    second: Washer_0
+      213: -5744318789881517370
+    second: WideSlider_Blank_Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Washer_0
+      name: WideSlider_Blank_Button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 512
+        width: 262
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cff6618d3654bac0800000000000000
-      internalID: -3840349760076185656
+      spriteID: 6caa28cce741840b0800000000000000
+      internalID: -5744318789881517370
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Washer_0: -3840349760076185656
+      WideSlider_Blank_Button_0: -5744318789881517370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
