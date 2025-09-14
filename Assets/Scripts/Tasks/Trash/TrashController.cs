@@ -32,27 +32,34 @@ public class TrashController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        TaskManager.Instance.onDone.AddListener(scream);
         countdownCanvas.alpha = 0f;
     }
 
     private void Update()
     {
+        // if canvas is visible, countdown is occuring
         if (countdownCanvas.alpha == 1f)
         {
-            if (IsPlayerInteracting()) { StopCountdown(); return; }
-            countdownText.text = _countdown.ToString("F1");
+            if (IsPlayerInteracting())
+            {
+                StopCountdown();
+                return;
+            }
+            countdownText.text = _countdown.ToString("F0");
             if (_countdown <= 0f) { TaskManager.Instance.CurrentTask.CompleteTask(); this.enabled = false; }
             _countdown -= Time.deltaTime;
         }
 
 
-        if (_checkCompleteInterval >= 0f) { _checkCompleteInterval -= Time.deltaTime; }
-        else
-        {
-            _checkCompleteInterval = checkCompleteInterval;
-            if (countdownCanvas.alpha == 0f) { if (CheckIfTrashIsStable() && AllTrashOffTheFloor && !IsPlayerInteracting()) { StartCountdown(); } }
+        // 
+        // if (_checkCompleteInterval >= 0f) { _checkCompleteInterval -= Time.deltaTime; }
+        // else
+        // {
+        //     _checkCompleteInterval = checkCompleteInterval;
+        //     if (countdownCanvas.alpha == 0f) { if (CheckIfTrashIsStable() && AllTrashOffTheFloor && !IsPlayerInteracting()) { StartCountdown(); } }
 
-        }
+        // }
     }
 
     public bool CheckIfTrashIsStable()
@@ -73,6 +80,11 @@ public class TrashController : MonoBehaviour
 
     public bool AllTrashOffTheFloor => _trashSpawner.gameObjectsLeftOnFloor.Count == 0;
 
+
+    private void scream()
+    {
+        Debug.Log("HELLO");
+    }
     private void StartCountdown()
     {
         countdownCanvas.alpha = 1f;
