@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &7552114911926783350
 MonoBehaviour:
@@ -166,6 +166,9 @@ MonoBehaviour:
   trashTaskPrefab: {fileID: 1003874517756662690, guid: e0790485d7f32e24c90c2ffc016cc60b, type: 3}
   teethBrushingTaskPrefab: {fileID: 3671631347112766099, guid: a520f6219650b6c4daf20350b58c452b, type: 3}
   selectedLevelSettings: {fileID: 11400000, guid: ef875e8d5f835364aa5261a17fcc1b88, type: 2}
+  onDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4917271329349932980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,6 +319,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637469866246165245, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224965526452694034, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9063368348071413577, guid: dc3c54436bcb97c409ff9c082fc113a1, type: 3}
