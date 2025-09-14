@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
@@ -17,11 +18,13 @@ public class TaskManager : MonoBehaviour
 
     [SerializeField] LevelSettings selectedLevelSettings;
 
+    public UnityEvent onDone;
+
     private List<GameObject> _taskPrefabs;
 
     private void Awake()
     {
-        if(Instance == null) { Instance = this; DontDestroyOnLoad(this); }
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(this); }
         else { Destroy(this); }
 
         _taskPrefabs = new List<GameObject>();
@@ -138,7 +141,8 @@ public class TaskManager : MonoBehaviour
 
     public void PressTaskButton()
     {
-        if (CurrentTask.TaskComplete) { CompleteTask(CurrentTask); }
-        else { }
+        // try to mark task as complete
+        CompleteTask(CurrentTask);
+        onDone.Invoke();
     }
 }
