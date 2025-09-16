@@ -32,7 +32,7 @@ public class TrashController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TaskManager.Instance.onDone.AddListener(scream);
+        TaskManager.Instance.onDone.AddListener(StartCountdown);
         countdownCanvas.alpha = 0f;
     }
 
@@ -80,11 +80,6 @@ public class TrashController : MonoBehaviour
 
     public bool AllTrashOffTheFloor => _trashSpawner.gameObjectsLeftOnFloor.Count == 0;
 
-
-    private void scream()
-    {
-        Debug.Log("HELLO");
-    }
     private void StartCountdown()
     {
         countdownCanvas.alpha = 1f;
@@ -101,9 +96,9 @@ public class TrashController : MonoBehaviour
     {
 
         // update settings to correct amount of stuff left
-        settings.cardboardBoxLeft = cardboardBoxCount;
-        settings.trashBagLeft = trashBagCount;
-        settings.smallTrashLeft = smallTrashCount;
+        // settings.cardboardBoxLeft = cardboardBoxCount;
+        // settings.trashBagLeft = trashBagCount;
+        // settings.smallTrashLeft = smallTrashCount;
     }
 
 
