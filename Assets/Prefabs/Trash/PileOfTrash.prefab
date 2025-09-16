@@ -214,6 +214,9 @@ MonoBehaviour:
   - {fileID: 8098002621852732798}
   - {fileID: 1662929703079663342}
   - {fileID: 4786335207574217357}
+  smallTrashCount: 1
+  cardboardCount: 0
+  trashbagCount: 0
 --- !u!1 &2461837912521106272
 GameObject:
   m_ObjectHideFlags: 0

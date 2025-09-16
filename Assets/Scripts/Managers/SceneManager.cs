@@ -15,7 +15,7 @@ public class SceneManager : MonoBehaviour
 
     public int CurrentSceneIndex { get; private set; }
 
-    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE, BASIC_TASK_SCENE}
+    public enum Scenes { MAIN_MENU, GAME_SCENE, TRASH_SCENE, BASIC_TASK_SCENE, LAUNDRY_SCENE}
 
     private void Awake()
     {
@@ -37,12 +37,13 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tilde))
+        if (Input.GetKey(KeyCode.Tilde)) //Hold down tilde + a number to switch to that scene
         {
             if (Input.GetKeyDown(KeyCode.Alpha1)) { SwitchScene((int)Scenes.MAIN_MENU); }
             if (Input.GetKeyDown(KeyCode.Alpha2)) { SwitchScene((int)Scenes.GAME_SCENE); }
             if (Input.GetKeyDown(KeyCode.Alpha3)) { SwitchScene((int)Scenes.TRASH_SCENE); }
             if (Input.GetKeyDown(KeyCode.Alpha4)) { SwitchScene((int)Scenes.BASIC_TASK_SCENE); }
+            if (Input.GetKeyDown(KeyCode.Alpha5)) { SwitchScene((int)Scenes.LAUNDRY_SCENE); }
         }
     }
 

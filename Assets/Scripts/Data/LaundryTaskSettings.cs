@@ -5,4 +5,7 @@ public class LaundryTaskSettings : TaskSettings
 {
     public int dirtyLaundry;
     public int timeLimit;
+
+    public float WashingMachineTimeLeft;
+    public float DryingMachineTimeLeft;
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class TrashTask : Task
 {
     [SerializeField] Transform collidersAndSprites;
-    public static Transform[] trashPilePositions;
+    public Transform[] trashPilePositions;
 
     public int smallTrashCount = 1;
     public int cardboardCount = 0;

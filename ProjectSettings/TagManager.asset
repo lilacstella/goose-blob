@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Toothbrush
   - Trash Platform
+  - Laundry
   layers:
   - Default
   - TransparentFX

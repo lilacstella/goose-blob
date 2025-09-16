@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BasicTaskScene.unity
     guid: 4a9cd81e03158db41a8abd256f5daa62
+  - enabled: 1
+    path: Assets/Scenes/LaundryScene.unity
+    guid: 599f01e107cbdf741a54124fa5013237
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
