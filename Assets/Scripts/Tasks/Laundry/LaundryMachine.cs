@@ -16,7 +16,8 @@ public class LaundryMachine : MonoBehaviour
     [SerializeField] float workTimeRequired = 100f;
 
     List<LaundryClothes> laundryInMachine = new List<LaundryClothes>();
-    [SerializeField] public float time = 0f;
+    float time = 0f;
+    public bool MachineWorking { get; set; }
 
     private void Awake()
     {
@@ -33,50 +34,72 @@ public class LaundryMachine : MonoBehaviour
     {
         if (!laundryInMachine.Contains(laundryClothes)) 
         {
-            laundryInMachine.Add(laundryClothes); 
-            laundryClothes.gameObject.SetActive(false); 
+            laundryInMachine.Add(laundryClothes);
+            laundryClothes.EnterMachine();
+            laundryClothes.transform.position = transform.position + (Vector3)Random.insideUnitCircle; 
         }
+        if (laundryInMachine.Count > 0) { startMachineButton.interactable = true; }
     }
+
     public void UpdateProgressCircle() { progressImage.fillAmount = time / workTimeRequired; }
     public void IncrementTimer(float time)
     {
         if (this.time <= workTimeRequired) { this.time += time; UpdateProgressCircle(); } //Increase timer while not at required time
+        else { MachineWorking = false; }
     }
 
     public void StartMachine(float time = 0f)
     {
+        startMachineButton.gameObject.SetActive(false);
+        MachineWorking = true;
         this.time = time;
     }
     public void ReleaseLoad() //Resets laundry machine and also spawns laundry in the air.
     {
-        Debug.Log("Releasing Clothes");
+        foreach (var item in laundryInMachine)
+        {
+
+        }
     }
     public void OpenCloseMachine()
     {
-        if(time >= workTimeRequired && machineSprite.sprite == closedSprite) { ReleaseLoad(); }
+        if (MachineWorking) { return; }
 
         if (machineSprite.sprite == openSprite)
         {
             machineSprite.sprite = closedSprite; 
             startMachineButton.gameObject.SetActive(true);
+            if (laundryInMachine.Count > 0) { startMachineButton.interactable = true; }
+            else { startMachineButton.interactable = false; }
         }
         else 
         {
-            machineSprite.sprite = openSprite; startMachineButton.gameObject.SetActive(false);
-            if (time >= workTimeRequired) { ReleaseLoad(); }
+            machineSprite.sprite = openSprite; 
+            startMachineButton.gameObject.SetActive(false);
         }
+        if (time >= workTimeRequired && machineSprite.sprite == closedSprite) { ReleaseLoad(); }
     }
     public void OnDestroy()
     {
-        if(laundryAccepts == Laundry.Dirty) { laundryTaskSettings.WashingMachineTimeLeft = workTimeRequired - time; }
-        if(laundryAccepts == Laundry.Wet) { laundryTaskSettings.DryingMachineTimeLeft = workTimeRequired - time; }
+        if(laundryAccepts == Laundry.Dirty) 
+        {
+            laundryTaskSettings.washerWorking = MachineWorking;
+            laundryTaskSettings.WashingMachineTimeLeft = workTimeRequired - time;
+            laundryTaskSettings.dirtyLaundryInWasher = laundryInMachine.Count;
+        }
+        if(laundryAccepts == Laundry.Wet) 
+        {
+            laundryTaskSettings.dryerWorking = MachineWorking;
+            laundryTaskSettings.DryingMachineTimeLeft = workTimeRequired - time;
+            laundryTaskSettings.wetLaundryInDryer = laundryInMachine.Count;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Laundry"))
         {
-
+            AddLaundryToMachine(collision.gameObject.GetComponent<LaundryClothes>());
         }
     }
 }

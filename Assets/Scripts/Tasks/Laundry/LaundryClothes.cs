@@ -3,12 +3,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Interactable))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class LaundryClothes : MonoBehaviour
 {
     public Laundry LaundryStatus {  get; private set; }
 
     [SerializeField] Collider2D _col;
     [SerializeField] SpriteRenderer laundryRenderer;
+    [SerializeField] Rigidbody2D _rb;
     [SerializeField] Sprite dirty, wet, clean;
     public Laundry startStatus = Laundry.Dirty;
 
@@ -38,10 +40,13 @@ public class LaundryClothes : MonoBehaviour
     }
     public void EnterMachine()
     {
+        GetComponent<Interactable>().StopInteraction();
+        _rb.bodyType = RigidbodyType2D.Static;
         _col.enabled = false;
     }
     public void ExitMachine()
     {
+        _rb.bodyType = RigidbodyType2D.Dynamic;
         _col.enabled = true;
     }
 }

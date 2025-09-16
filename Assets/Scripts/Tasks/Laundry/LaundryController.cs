@@ -14,18 +14,13 @@ public class LaundryController : MonoBehaviour
         
     }
 
-    public void StartWashingMachine()
-    {
-        //play beep audio
-        //start countdown
-
-    }
-    public void ReleaseLoad()
+    public void LoadLaundryFromSettings()
     {
 
     }
-    public void StartDryingMachine()
-    {
 
+    public void Update()
+    {
+        if (washingMachine.MachineWorking) { washingMachine.IncrementTimer(Time.deltaTime); }
     }
 }

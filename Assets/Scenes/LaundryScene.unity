@@ -552,8 +552,7 @@ MonoBehaviour:
   startSfx: {fileID: 0}
   laundryTaskSettings: {fileID: 11400000, guid: 4ec0d5c0acb9e3941ae98d126132e5fd, type: 2}
   laundryAccepts: 1
-  workTimeRequired: 100
-  time: 0
+  workTimeRequired: 5
 --- !u!50 &123628921
 Rigidbody2D:
   serializedVersion: 5
@@ -730,7 +729,6 @@ MonoBehaviour:
   laundryTaskSettings: {fileID: 11400000, guid: 4ec0d5c0acb9e3941ae98d126132e5fd, type: 2}
   laundryAccepts: 2
   workTimeRequired: 100
-  time: 0
 --- !u!50 &130126166
 Rigidbody2D:
   serializedVersion: 5
@@ -806,9 +804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdd0462da943344b014a0cddbf0d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laundryTask: {fileID: 0}
-  washingMachine: {fileID: 0}
-  dryingMachine: {fileID: 0}
+  laundryTask: {fileID: 712558080}
+  washingMachine: {fileID: 123628920}
+  dryingMachine: {fileID: 130126165}
 --- !u!82 &286629323
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1718,6 +1716,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111468872}
   m_CullTransparentMesh: 1
+--- !u!1 &1113371597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113371599}
+  - component: {fileID: 1113371598}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &1113371598
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113371597}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 1
+  m_Points:
+  - {x: -10, y: -5.6}
+  - {x: -10, y: 5.6}
+  - {x: 10, y: 5.6}
+  - {x: 10, y: -5.6}
+  - {x: -10, y: -5.6}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!4 &1113371599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113371597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154772575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,3 +2435,4 @@ SceneRoots:
   - {fileID: 2065448999}
   - {fileID: 116317916}
   - {fileID: 2000774449}
+  - {fileID: 1113371599}

@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
     public float moveForce = 5f;
 
     public bool Interacting { get; private set; }
+    public bool CanInteract {  get; private set; }
 
     protected Quaternion _rotOnStartClick;
     protected Quaternion _defaultRotation = new Quaternion(0, 0, 0, 1);
@@ -29,6 +30,8 @@ public class Interactable : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _col = GetComponent<Collider2D>();
+        CanInteract = true;
+        Interacting = false;
     }
 
     public void Update()
@@ -44,8 +47,14 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public void StopInteraction()
+    {
+        if (CanInteract) { CanInteract = false; }
+    }
+
     public virtual void OnMouseDrag()
     {
+        if (!CanInteract) { return; }
         if (followsMouseWhenHeldDown)
         {
             if (freezeRotationUponDrag) { transform.rotation = _rotOnStartClick; }
@@ -65,11 +74,13 @@ public class Interactable : MonoBehaviour
     }
     public virtual void OnMouseUp()
     {
-        if(_col != null && disableColliderOnDrag) { _col.enabled = true; }
+        if (!CanInteract) { return; }
+        if (_col != null && disableColliderOnDrag) { _col.enabled = true; }
         Interacting = false;
     }
     public virtual void OnMouseDown()
     {
+        if(!CanInteract) { return; }
         OnMouseClick.Invoke();
         if (freezeRotationUponDrag) { _rotOnStartClick = transform.rotation; }
         if (_col != null && disableColliderOnDrag) { _col.enabled = false; }

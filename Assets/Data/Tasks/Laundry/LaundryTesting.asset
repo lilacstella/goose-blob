@@ -16,3 +16,10 @@ MonoBehaviour:
   guiltSettings: {fileID: 0}
   chancesToFail: 3
   baseTimeUsage: 15
+  dirtyLaundry: 0
+  washerWorking: 1
+  dryerWorking: 0
+  WashingMachineTimeLeft: 93.55638
+  DryingMachineTimeLeft: 100
+  dirtyLaundryInWasher: 1
+  wetLaundryInDryer: 0

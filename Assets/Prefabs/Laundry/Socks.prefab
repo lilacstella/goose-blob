@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _col: {fileID: 294670896972341780}
   laundryRenderer: {fileID: 6946049807557646828}
+  _rb: {fileID: 8616531072430012390}
   dirty: {fileID: 3419881277874356095, guid: afc82e3d51047db49a047538c53850c6, type: 3}
   wet: {fileID: 1699193318139303025, guid: 23684dcc7d70ac6479a316796340c829, type: 3}
   clean: {fileID: -1043882274882101574, guid: 2659d710228ae9f4c9c896c3fc70e5f5, type: 3}
@@ -149,7 +150,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
