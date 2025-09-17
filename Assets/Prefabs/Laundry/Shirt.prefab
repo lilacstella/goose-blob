@@ -109,7 +109,7 @@ MonoBehaviour:
   dirty: {fileID: 6495480498674742955, guid: 50a5bbc5f037da24bb42efe2927d7c7a, type: 3}
   wet: {fileID: -5784030360651097991, guid: d41c0222496341f49ac703c6c8a5fead, type: 3}
   clean: {fileID: -7765504186364614781, guid: 650037582e21e694cbe72946728f2900, type: 3}
-  startStatus: 1
+  startStatus: 0
 --- !u!114 &1236991618535161122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &6237995975649263875
 PolygonCollider2D:
   m_ObjectHideFlags: 0

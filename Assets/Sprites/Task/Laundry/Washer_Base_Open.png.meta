@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0a522962cc5986d4f933049af76e933e
+guid: e4055164eb2918a4aae2fe0848b66842
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1961642713336851558
-    second: Washing_0
+      213: -7346841550560860640
+    second: Washer_Base_Open_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Washing_0
+      name: Washer_Base_Open_0
       rect:
         serializedVersion: 2
         x: 25
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a93d25f6858d6c4e0800000000000000
-      internalID: -1961642713336851558
+      spriteID: 0266db5f886ca0a90800000000000000
+      internalID: -7346841550560860640
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Washing_0: -1961642713336851558
+      Washer_Base_Open_0: -7346841550560860640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

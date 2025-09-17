@@ -482,13 +482,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -433604933
   m_SortingLayer: 1
-  m_SortingOrder: -1
-  m_Sprite: {fileID: -1961642713336851558, guid: 0a522962cc5986d4f933049af76e933e, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 4694163589440818437, guid: bcb0c32df8d13964d9c80afdcd4268ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.58, y: 4.56}
+  m_Size: {x: 2.51, y: 3.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -546,13 +546,13 @@ MonoBehaviour:
   openMachineButton: {fileID: 383355492}
   progressImage: {fileID: 1505944065}
   machineSprite: {fileID: 123628918}
-  closedSprite: {fileID: -1961642713336851558, guid: 0a522962cc5986d4f933049af76e933e, type: 3}
-  openSprite: {fileID: -3428158435076008787, guid: 4c4ac1fd03dedb342b6f667533f80b98, type: 3}
+  closedSprite: {fileID: 4694163589440818437, guid: bcb0c32df8d13964d9c80afdcd4268ce, type: 3}
+  openSprite: {fileID: -7346841550560860640, guid: e4055164eb2918a4aae2fe0848b66842, type: 3}
   completeSfx: {fileID: 0}
   startSfx: {fileID: 0}
   laundryTaskSettings: {fileID: 11400000, guid: 4ec0d5c0acb9e3941ae98d126132e5fd, type: 2}
-  laundryAccepts: 1
-  workTimeRequired: 5
+  laundryAccepts: 0
+  workTimeRequired: 3
 --- !u!50 &123628921
 Rigidbody2D:
   serializedVersion: 5
@@ -695,12 +695,12 @@ SpriteRenderer:
   m_SortingLayerID: -433604933
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2698022918466255955, guid: edf30e46f85373c4b949d2069e844e54, type: 3}
+  m_Sprite: {fileID: -2627141138856526485, guid: a9670394422f5564abd4a020730bd01d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 4.58, y: 4.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -722,13 +722,13 @@ MonoBehaviour:
   openMachineButton: {fileID: 1606015990}
   progressImage: {fileID: 1111468874}
   machineSprite: {fileID: 130126164}
-  closedSprite: {fileID: -2698022918466255955, guid: edf30e46f85373c4b949d2069e844e54, type: 3}
-  openSprite: {fileID: -4915368861110369989, guid: b924322d56d483b42a2e10286071135f, type: 3}
+  closedSprite: {fileID: -2627141138856526485, guid: a9670394422f5564abd4a020730bd01d, type: 3}
+  openSprite: {fileID: 2118567601842641448, guid: acc8a8fbc68dcaf428eff61d5a115ad1, type: 3}
   completeSfx: {fileID: 0}
   startSfx: {fileID: 0}
   laundryTaskSettings: {fileID: 11400000, guid: 4ec0d5c0acb9e3941ae98d126132e5fd, type: 2}
-  laundryAccepts: 2
-  workTimeRequired: 100
+  laundryAccepts: 1
+  workTimeRequired: 3
 --- !u!50 &130126166
 Rigidbody2D:
   serializedVersion: 5
@@ -1727,7 +1727,7 @@ GameObject:
   - component: {fileID: 1113371599}
   - component: {fileID: 1113371598}
   m_Layer: 0
-  m_Name: Square
+  m_Name: SceneBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1770,11 +1770,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 1
   m_Points:
-  - {x: -10, y: -5.6}
-  - {x: -10, y: 5.6}
-  - {x: 10, y: 5.6}
-  - {x: 10, y: -5.6}
-  - {x: -10, y: -5.6}
+  - {x: -10, y: -6}
+  - {x: -10, y: 6}
+  - {x: 10, y: 6}
+  - {x: 10, y: -6}
+  - {x: -10, y: -6}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2379,11 +2379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152027739783853350, guid: e4e27b4cb9ce9f24b8ae51e8615443b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.927
+      value: -2.38
       objectReference: {fileID: 0}
     - target: {fileID: 8152027739783853350, guid: e4e27b4cb9ce9f24b8ae51e8615443b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.565
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 8152027739783853350, guid: e4e27b4cb9ce9f24b8ae51e8615443b8, type: 3}
       propertyPath: m_LocalPosition.z

@@ -22,5 +22,6 @@ public class LaundryController : MonoBehaviour
     public void Update()
     {
         if (washingMachine.MachineWorking) { washingMachine.IncrementTimer(Time.deltaTime); }
+        if (dryingMachine.MachineWorking) { dryingMachine.IncrementTimer(Time.deltaTime); }
     }
 }

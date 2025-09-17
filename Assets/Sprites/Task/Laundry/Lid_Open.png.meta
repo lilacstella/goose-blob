@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: edf30e46f85373c4b949d2069e844e54
+guid: b85fbd461185ea94688c126fbbb6458d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2698022918466255955
-    second: Dryer_0
+      213: 8927085131900134519
+    second: Lid_Open_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dryer_0
+      name: Lid_Open_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 34
-        width: 458
-        height: 456
+        x: 89
+        y: 68
+        width: 251
+        height: 334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da3c4fc4372be8ad0800000000000000
-      internalID: -2698022918466255955
+      spriteID: 774249631a063eb70800000000000000
+      internalID: 8927085131900134519
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dryer_0: -2698022918466255955
+      Lid_Open_0: 8927085131900134519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

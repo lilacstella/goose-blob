@@ -13,10 +13,12 @@ public class LaundryClothes : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Sprite dirty, wet, clean;
     public Laundry startStatus = Laundry.Dirty;
+    private int _dirtTouchTimes = 0;
 
     private void Start()
     {
         SwitchState(startStatus);
+        _dirtTouchTimes = 0;
     }
 
     public void SwitchState(Laundry laundry)
@@ -36,6 +38,7 @@ public class LaundryClothes : MonoBehaviour
                     break;
             }
             LaundryStatus = laundry;
+            _dirtTouchTimes = 0;
         }
     }
     public void EnterMachine()
@@ -47,6 +50,29 @@ public class LaundryClothes : MonoBehaviour
     public void ExitMachine()
     {
         _rb.bodyType = RigidbodyType2D.Dynamic;
+        Vector2 force = Random.insideUnitCircle;
+        force.y = 3f;
+        _rb.AddForce(force, ForceMode2D.Impulse);
         _col.enabled = true;
+        GetComponent<Interactable>().AllowInteraction();
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (LaundryStatus != Laundry.Dirty) 
+        { 
+            if (collision.gameObject.CompareTag("Laundry"))
+            {
+                LaundryClothes lc = collision.gameObject.GetComponent<LaundryClothes>();
+                if (lc != null) 
+                {
+                    if (lc.LaundryStatus == Laundry.Dirty) 
+                    {
+                        _dirtTouchTimes++;
+                        if (_dirtTouchTimes > 4) { SwitchState(Laundry.Dirty); }
+                    } 
+                }
+            } 
+        }
     }
 }

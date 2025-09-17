@@ -51,6 +51,10 @@ public class Interactable : MonoBehaviour
     {
         if (CanInteract) { CanInteract = false; }
     }
+    public void AllowInteraction()
+    {
+        if(!CanInteract) { CanInteract = true; }
+    }
 
     public virtual void OnMouseDrag()
     {

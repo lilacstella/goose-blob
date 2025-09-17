@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8424795690871223285}
   - component: {fileID: 1236991618535161122}
   - component: {fileID: 8616531072430012390}
-  - component: {fileID: 2250993936951700038}
+  - component: {fileID: 6567415844359744810}
   m_Layer: 0
   m_Name: Pants
   m_TagString: Laundry
@@ -103,13 +103,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dba65c94b1bc37488891de76be2b732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _col: {fileID: 2250993936951700038}
+  _col: {fileID: 6567415844359744810}
   laundryRenderer: {fileID: 6946049807557646828}
   _rb: {fileID: 8616531072430012390}
   dirty: {fileID: -4101826000788574443, guid: e8a5d32e943fc564eb701870bc05dd37, type: 3}
   wet: {fileID: 2017777600836570365, guid: b9267fa9eae6a1f44b664a991f4f47c8, type: 3}
   clean: {fileID: -3137771442693208579, guid: 5a76aeb3449cd6f4682e00220fe8a473, type: 3}
-  startStatus: 1
+  startStatus: 0
 --- !u!114 &1236991618535161122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,9 +161,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &2250993936951700038
-CircleCollider2D:
+  m_Constraints: 0
+--- !u!60 &6567415844359744810
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -197,4 +197,34 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.115, y: 0.935}
+    newSize: {x: 2.23, y: 1.87}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5664445, y: 0.17131007}
+      - {x: -0.53310084, y: -0.051616013}
+      - {x: -0.4985807, y: -0.11576557}
+      - {x: -0.41267973, y: -0.1581963}
+      - {x: -0.39767992, y: -0.31667536}
+      - {x: -0.3139465, y: -0.41097632}
+      - {x: 0.22469187, y: -0.465387}
+      - {x: 0.27648997, y: -0.28414178}
+      - {x: 0.4599691, y: -0.26616648}
+      - {x: 0.5605936, y: -0.122460246}
+      - {x: 0.5595429, y: 0.06938374}
+      - {x: 0.51800627, y: 0.22199385}
+      - {x: 0.4725, y: 0.3725}
+      - {x: 0.43434215, y: 0.4485364}
+      - {x: 0.35609984, y: 0.48416126}
+      - {x: -0.11523712, y: 0.3977449}
+      - {x: -0.24398303, y: 0.42826748}
+      - {x: -0.3923327, y: 0.40102828}
+      - {x: -0.49551016, y: 0.31063607}
+  m_UseDelaunayMesh: 0

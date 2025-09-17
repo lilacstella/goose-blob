@@ -36,7 +36,7 @@ public class LaundryMachine : MonoBehaviour
         {
             laundryInMachine.Add(laundryClothes);
             laundryClothes.EnterMachine();
-            laundryClothes.transform.position = transform.position + (Vector3)Random.insideUnitCircle; 
+            laundryClothes.transform.position = transform.position + (Vector3)Random.insideUnitCircle * 0.7f; 
         }
         if (laundryInMachine.Count > 0) { startMachineButton.interactable = true; }
     }
@@ -56,10 +56,14 @@ public class LaundryMachine : MonoBehaviour
     }
     public void ReleaseLoad() //Resets laundry machine and also spawns laundry in the air.
     {
-        foreach (var item in laundryInMachine)
+        foreach (LaundryClothes item in laundryInMachine) 
         {
-
+            item.SwitchState((Laundry)(int)laundryAccepts++);
+            item.ExitMachine(); 
         }
+        laundryInMachine.Clear();
+        time = 0f;
+        progressImage.fillAmount = 0f;
     }
     public void OpenCloseMachine()
     {
@@ -76,8 +80,10 @@ public class LaundryMachine : MonoBehaviour
         {
             machineSprite.sprite = openSprite; 
             startMachineButton.gameObject.SetActive(false);
+
+            if (time >= workTimeRequired) { ReleaseLoad(); }
         }
-        if (time >= workTimeRequired && machineSprite.sprite == closedSprite) { ReleaseLoad(); }
+        
     }
     public void OnDestroy()
     {
@@ -97,15 +103,19 @@ public class LaundryMachine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(MachineWorking || machineSprite == closedSprite) { return; }
+
         if (collision.CompareTag("Laundry"))
         {
-            AddLaundryToMachine(collision.gameObject.GetComponent<LaundryClothes>());
+            LaundryClothes lc = collision.GetComponent<LaundryClothes>();
+            if(lc == null) { return; }
+            if (lc.LaundryStatus == laundryAccepts) { AddLaundryToMachine(lc); }
         }
     }
 }
 public enum Laundry
 {
-    Clean,
     Dirty,
     Wet,
+    Clean,
 }
