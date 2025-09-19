@@ -11,8 +11,9 @@ public class LaundryMachine : MonoBehaviour
     [SerializeField] Sprite closedSprite, openSprite;
     [SerializeField] AudioClip completeSfx, startSfx;
     [SerializeField] LaundryTaskSettings laundryTaskSettings;
+    [SerializeField] Transform rotateCenter;
     [Header("Settings")]
-    [SerializeField] Laundry laundryAccepts;
+    [SerializeField] Laundry laundryAccepts, productLaundry;
     [SerializeField] float workTimeRequired = 100f;
 
     List<LaundryClothes> laundryInMachine = new List<LaundryClothes>();
@@ -28,7 +29,7 @@ public class LaundryMachine : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetMouseButtonDown(0)) { IncrementTimer(Time.deltaTime); }
+
     }
     public void AddLaundryToMachine(LaundryClothes laundryClothes)
     {
@@ -36,7 +37,8 @@ public class LaundryMachine : MonoBehaviour
         {
             laundryInMachine.Add(laundryClothes);
             laundryClothes.EnterMachine();
-            laundryClothes.transform.position = transform.position + (Vector3)Random.insideUnitCircle * 0.7f; 
+            laundryClothes.transform.position = transform.position + (Vector3)Random.insideUnitCircle * 0.7f;
+            laundryClothes.transform.SetParent(rotateCenter, true);
         }
         if (laundryInMachine.Count > 0) { startMachineButton.interactable = true; }
     }
@@ -58,12 +60,15 @@ public class LaundryMachine : MonoBehaviour
     {
         foreach (LaundryClothes item in laundryInMachine) 
         {
-            item.SwitchState((Laundry)(int)laundryAccepts++);
+            item.SwitchState(productLaundry);
+            item.transform.SetParent(null, true);
             item.ExitMachine(); 
         }
         laundryInMachine.Clear();
+
         time = 0f;
         progressImage.fillAmount = 0f;
+        MachineWorking = false;
     }
     public void OpenCloseMachine()
     {
@@ -103,7 +108,7 @@ public class LaundryMachine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(MachineWorking || machineSprite == closedSprite) { return; }
+        if(MachineWorking || machineSprite == closedSprite) { Debug.Log("Currently Working"); return; }
 
         if (collision.CompareTag("Laundry"))
         {
@@ -115,7 +120,7 @@ public class LaundryMachine : MonoBehaviour
 }
 public enum Laundry
 {
-    Dirty,
-    Wet,
-    Clean,
+    Dirty = 0,
+    Wet = 1,
+    Clean = 2,
 }

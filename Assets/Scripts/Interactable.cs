@@ -41,8 +41,7 @@ public class Interactable : MonoBehaviour
             float delta = Input.GetAxis("Mouse ScrollWheel");
             if(delta != 0f)
             {
-                if (movesUsingRigidbody) { }
-                else { transform.Rotate(0, 0, delta * 5f); }
+                 { transform.Rotate(0, 0, delta * 5f); }
             }
         }
     }
@@ -67,11 +66,9 @@ public class Interactable : MonoBehaviour
             if (_rb != null && removeVelocityUponClick) { _rb.angularVelocity = 0; _rb.linearVelocity = Vector2.zero; }
 
             Vector3 pos = GetMousePosition();
-            if (followsMouseWithOffsetDependingOnWhereMouseWas)
-            {
-                pos += _mouseOffsetFromPivotPoint;
-            }
-            if (movesUsingRigidbody) { _rb.AddForce((pos - transform.position).normalized * moveForce); }
+            if (followsMouseWithOffsetDependingOnWhereMouseWas) { pos += _mouseOffsetFromPivotPoint; }
+
+            if (movesUsingRigidbody) { _rb.AddForce((pos - transform.position) * moveForce); }
             else { transform.position = pos; }
         }
         Interacting = true;

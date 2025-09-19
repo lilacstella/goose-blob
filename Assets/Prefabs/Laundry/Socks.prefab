@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -433604933
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3419881277874356095, guid: afc82e3d51047db49a047538c53850c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
   removeVelocityUponClick: 1
   disableColliderOnDrag: 0
   mouseScrollToRotate: 0
-  movesUsingRigidbody: 0
-  moveForce: 5
+  movesUsingRigidbody: 1
+  moveForce: 100
 --- !u!50 &8616531072430012390
 Rigidbody2D:
   serializedVersion: 5
@@ -160,7 +160,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &294670896972341780
 PolygonCollider2D:

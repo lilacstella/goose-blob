@@ -51,7 +51,7 @@ public class LaundryClothes : MonoBehaviour
     {
         _rb.bodyType = RigidbodyType2D.Dynamic;
         Vector2 force = Random.insideUnitCircle;
-        force.y = 3f;
+        force.y = Random.Range(3f, 10f);
         _rb.AddForce(force, ForceMode2D.Impulse);
         _col.enabled = true;
         GetComponent<Interactable>().AllowInteraction();
@@ -70,7 +70,11 @@ public class LaundryClothes : MonoBehaviour
                     {
                         _dirtTouchTimes++;
                         if (_dirtTouchTimes > 4) { SwitchState(Laundry.Dirty); }
-                    } 
+                    }
+                    else if(lc.LaundryStatus == Laundry.Wet && LaundryStatus == Laundry.Clean)
+                    {
+                        SwitchState(Laundry.Wet);
+                    }
                 }
             } 
         }
