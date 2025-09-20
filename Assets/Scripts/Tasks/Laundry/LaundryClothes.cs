@@ -20,6 +20,24 @@ public class LaundryClothes : MonoBehaviour
         SwitchState(startStatus);
         _dirtTouchTimes = 0;
     }
+    private void Awake()
+    {
+        if (SceneManager.Instance != null) 
+        {
+            int index = SceneManager.Instance.CurrentSceneIndex;
+            if (index != (int)SceneManager.Scenes.LAUNDRY_SCENE) 
+            {
+                Interactable i = GetComponent<Interactable>();
+                i.followsMouseWhenHeldDown = false;
+                i.OnMouseClick.AddListener(AddToLaundryBasket);
+            }
+        }
+    }
+
+    public void AddToLaundryBasket()
+    {
+        gameObject.SetActive(false);
+    }
 
     public void SwitchState(Laundry laundry)
     {

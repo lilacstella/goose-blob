@@ -10,7 +10,7 @@ public class LaundryMachine : MonoBehaviour
     [SerializeField] SpriteRenderer machineSprite;
     [SerializeField] Sprite closedSprite, openSprite;
     [SerializeField] AudioClip completeSfx, startSfx;
-    [SerializeField] LaundryTaskSettings laundryTaskSettings;
+    public LaundryTaskSettings settings;
     [SerializeField] Transform rotateCenter;
     [Header("Settings")]
     [SerializeField] Laundry laundryAccepts, productLaundry;
@@ -22,15 +22,16 @@ public class LaundryMachine : MonoBehaviour
 
     private void Awake()
     {
+        if (!MachineWorking) { ResetMachine(); }
+    }
+
+    private void ResetMachine()
+    {
         progressImage.fillAmount = 0;
         startMachineButton.interactable = false;
         machineSprite.sprite = openSprite;
     }
 
-    private void Update()
-    {
-
-    }
     public void AddLaundryToMachine(LaundryClothes laundryClothes)
     {
         if (!laundryInMachine.Contains(laundryClothes)) 
@@ -94,15 +95,15 @@ public class LaundryMachine : MonoBehaviour
     {
         if(laundryAccepts == Laundry.Dirty) 
         {
-            laundryTaskSettings.washerWorking = MachineWorking;
-            laundryTaskSettings.WashingMachineTimeLeft = workTimeRequired - time;
-            laundryTaskSettings.dirtyLaundryInWasher = laundryInMachine.Count;
+            settings.washerWorking = MachineWorking;
+            settings.WashingMachineTimeLeft = time;
+            settings.dirtyLaundryInWasher = laundryInMachine.Count;
         }
         if(laundryAccepts == Laundry.Wet) 
         {
-            laundryTaskSettings.dryerWorking = MachineWorking;
-            laundryTaskSettings.DryingMachineTimeLeft = workTimeRequired - time;
-            laundryTaskSettings.wetLaundryInDryer = laundryInMachine.Count;
+            settings.dryerWorking = MachineWorking;
+            settings.DryingMachineTimeLeft = time;
+            settings.wetLaundryInDryer = laundryInMachine.Count;
         }
     }
 

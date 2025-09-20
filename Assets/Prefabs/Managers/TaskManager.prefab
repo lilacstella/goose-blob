@@ -165,6 +165,7 @@ MonoBehaviour:
   _requiredTasks: 
   trashTaskPrefab: {fileID: 1003874517756662690, guid: e0790485d7f32e24c90c2ffc016cc60b, type: 3}
   teethBrushingTaskPrefab: {fileID: 3671631347112766099, guid: a520f6219650b6c4daf20350b58c452b, type: 3}
+  laundryTaskPrefab: {fileID: 1249459300159684484, guid: f2d58e28accc63e44837009bfa09edc4, type: 3}
   selectedLevelSettings: {fileID: 11400000, guid: ef875e8d5f835364aa5261a17fcc1b88, type: 2}
   onDone:
     m_PersistentCalls:

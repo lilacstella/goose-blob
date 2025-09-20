@@ -13,7 +13,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] TMP_Text _taskButton;
     [SerializeField] List<Tasks> _requiredTasks;
 
-    [SerializeField] GameObject trashTaskPrefab, teethBrushingTaskPrefab;    
+    [SerializeField] GameObject trashTaskPrefab, teethBrushingTaskPrefab, laundryTaskPrefab;    
 
     [SerializeField] LevelSettings selectedLevelSettings;
 
@@ -58,7 +58,9 @@ public class TaskManager : MonoBehaviour
                     taskPrefab.GetComponent<BrushTeethTask>().settings = (TeethBrushingTaskSettings)task;
                     break;
                 case Tasks.Laundry:
-
+                    _requiredTasks.Add(Tasks.Laundry);
+                    taskPrefab = Instantiate(laundryTaskPrefab, this.transform);
+                    taskPrefab.GetComponent<LaundryTask>().settings = (LaundryTaskSettings)task;
                     break;
                 case Tasks.Showering:
 
@@ -124,6 +126,7 @@ public class TaskManager : MonoBehaviour
         {
             CurrentTask.OnCompleteTask.Invoke();
             CurrentTask = null;
+            SceneManager.Instance.SwitchScene(SceneManager.Scenes.GAME_SCENE);
 
             if (task.TaskComplete)
             {

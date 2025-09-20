@@ -14,4 +14,5 @@ public class LaundryTaskSettings : TaskSettings
     public float DryingMachineTimeLeft;
 
     public int dirtyLaundryInWasher, wetLaundryInDryer;
+    public int dirtyLaundryPickedup;
 }

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33bab79d63c89b46801bbd1eeab5e19, type: 3}
   m_Name: LaundryTesting
   m_EditorClassIdentifier: 
-  taskType: 0
-  guiltSettings: {fileID: 0}
+  taskType: 2
+  guiltSettings: {fileID: 11400000, guid: 2fcee8e6c952bf648b9f056a6925b782, type: 2}
   chancesToFail: 3
-  baseTimeUsage: 15
-  dirtyLaundry: 0
-  washerWorking: 1
+  baseTimeUsage: 5
+  dirtyLaundry: 10
+  washerWorking: 0
   dryerWorking: 0
-  WashingMachineTimeLeft: 93.55638
-  DryingMachineTimeLeft: 100
-  dirtyLaundryInWasher: 1
+  WashingMachineTimeLeft: 0
+  DryingMachineTimeLeft: 0
+  dirtyLaundryInWasher: 0
   wetLaundryInDryer: 0
+  dirtyLaundryPickedup: 0

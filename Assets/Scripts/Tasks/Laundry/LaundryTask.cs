@@ -15,4 +15,11 @@ public class LaundryTask : Task
     {
         
     }
+
+    public void SpawnDirtyLaundry()
+    {
+
+    }
+
+
 }
