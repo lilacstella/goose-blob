@@ -41,9 +41,12 @@ public class LaundryController : MonoBehaviour
             }
         }
 
-        if (settings.dirtyLaundry > 0) 
+        if (settings.dirtyLaundry > 0)
         {
-            Instantiate(laundryPrefabs[Random.Range(0, laundryPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+            for (int i = 0; i < settings.dirtyLaundry; i++)
+            {
+                Instantiate(laundryPrefabs[Random.Range(0, laundryPrefabs.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+            }
         }
     }
 
