@@ -144,7 +144,9 @@ public class TaskManager : MonoBehaviour
     public void PressTaskButton()
     {
         // try to mark task as complete
-        CompleteTask(CurrentTask);
         onDone.Invoke();
+        
+        // may take more work before we can try marking this task off
+        // CompleteTask(CurrentTask);
     }
 }

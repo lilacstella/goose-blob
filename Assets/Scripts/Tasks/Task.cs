@@ -58,9 +58,10 @@ public class Task : MonoBehaviour
         StartTask();
     }
 }
+
 public enum Tasks
 {
-    None, 
+    None,
     TakeOutTrash,
     Laundry,
     BrushYourTeeth,

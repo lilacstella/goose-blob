@@ -12,7 +12,7 @@ public class TrashController : MonoBehaviour
 
     public float velocityThreshold = 1.0f;
     public float checkCompleteInterval = 1.0f;
-    private float _checkCompleteInterval = 3.0f;
+    // private float _checkCompleteInterval = 3.0f;
     private float _countdown = 3f;
 
     [SerializeField] private CanvasGroup countdownCanvas;
@@ -47,7 +47,7 @@ public class TrashController : MonoBehaviour
                 return;
             }
             countdownText.text = _countdown.ToString("F0");
-            if (_countdown <= 0f) { TaskManager.Instance.CurrentTask.CompleteTask(); this.enabled = false; }
+            if (_countdown <= 0f) { TaskManager.Instance.CurrentTask.CompleteTask(); enabled = false; }
             _countdown -= Time.deltaTime;
         }
 
