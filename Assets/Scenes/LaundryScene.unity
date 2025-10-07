@@ -494,11 +494,11 @@ MonoBehaviour:
   openSprite: {fileID: -7346841550560860640, guid: e4055164eb2918a4aae2fe0848b66842, type: 3}
   completeSfx: {fileID: 0}
   startSfx: {fileID: 0}
-  laundryTaskSettings: {fileID: 11400000, guid: 4ec0d5c0acb9e3941ae98d126132e5fd, type: 2}
+  settings: {fileID: 0}
   rotateCenter: {fileID: 189170886}
   laundryAccepts: 0
   productLaundry: 1
-  workTimeRequired: 3
+  workTimeRequired: 20
 --- !u!50 &123628921
 Rigidbody2D:
   serializedVersion: 5
@@ -673,11 +673,11 @@ MonoBehaviour:
   openSprite: {fileID: 2118567601842641448, guid: acc8a8fbc68dcaf428eff61d5a115ad1, type: 3}
   completeSfx: {fileID: 0}
   startSfx: {fileID: 0}
-  laundryTaskSettings: {fileID: 11400000, guid: 4ec0d5c0acb9e3941ae98d126132e5fd, type: 2}
+  settings: {fileID: 0}
   rotateCenter: {fileID: 172023286}
   laundryAccepts: 1
   productLaundry: 2
-  workTimeRequired: 3
+  workTimeRequired: 15
 --- !u!50 &130126166
 Rigidbody2D:
   serializedVersion: 5

@@ -14,9 +14,7 @@ public class LaundryController : MonoBehaviour
 
     private void Start()
     {
-        laundryTask = FindAnyObjectByType<LaundryTask>();
-        settings = (LaundryTaskSettings)laundryTask.settings;
-        LoadLaundryFromSettings();
+        TaskManager.Instance.onDone.AddListener(()=> SceneManager.Instance.SwitchScene(SceneManager.Scenes.GAME_SCENE));
     }
 
     public void LoadLaundryFromSettings()

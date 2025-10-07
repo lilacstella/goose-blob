@@ -95,7 +95,7 @@ public class TaskManager : MonoBehaviour
         {
             foreach(GameObject go in _taskPrefabs)
             {
-                if(go.GetComponent<Task>().settings.taskType != CurrentTask.settings.taskType) go.SetActive(false);
+                if(go != CurrentTask) go.SetActive(false);
             }
             _taskManagerCanvas.alpha = 1f;
         }
